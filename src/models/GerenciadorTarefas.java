@@ -13,6 +13,12 @@ public class GerenciadorTarefas implements IRepository {
         Scanner leitor = new Scanner(System.in);
         System.out.print("\nTítulo da tarefa\n-> ");
         String titulo = leitor.nextLine();
+        for (Tarefa tarefa : listaTarefas) {
+            if (tarefa.getTitulo().equals(titulo)) {
+                System.out.println("Essa tarefa já existe.");
+                return;
+            }
+        }
 
         System.out.print("Descrição\n-> ");
         String descricao = leitor.nextLine();
